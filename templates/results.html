@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block main %}
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 55px;
+    vertical-align: top;
+}
+</style>
+
+
+</head>
+<body>
+
+<!-- additional search bar -->
+<form action="/" method="post">
+    <div class="form-group">
+        <input autocomplete="off" autofocus class="form-control" name="keyword" placeholder="Keyword" type="text"/>
+        <button class="btn btn-primary" type="submit">Search</button>
+    </div>
+</form>
+
+<h4>Search Results for <b>{{keyword}}</b></h4></br>
+
+<div class="row" align="left">
+  <div class="column" style="background-color:lavender;" align="top">
+    <h1><center>Left Media</center></h1></br>
+      <hr>
+      <!-- loop for list of left leaning articles -->
+      {% for n in left_list %}
+      <p>
+        <!-- display article image -->
+        <img src={{n['urlToImage']}} alt="image" style="width:450px;height:260px;"></br>
+        <!-- create article hyperlink -->
+        <a href={{n['url']}} target="_blank">{{n['title']}}</a></br>
+        Published: {{n['publishedAt']}}</br>
+        <b>{{n['source']['name']}}</b>
+      </p>
+      <hr>
+      {% endfor %}
+  </div>
+
+  <div class="column" style="background-color:lavenderblush;" align="top">
+    <h1><center>Right Media</center></h1></br>
+      <hr>
+      <!-- loop for list of right leaning articles -->
+      {% for n in right_list %}
+      <p>
+        <!-- display article image -->
+        <img src={{n['urlToImage']}} alt="image" style="width:450px;height:260px;"></br>
+        <!-- create article hyperlink -->
+        <a href={{n['url']}} target="_blank">{{n['title']}}</a></br>
+        Published: {{n['publishedAt']}}</br>
+        <b>{{n['source']['name']}}</b>
+      </p>
+      <hr>
+      {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,5 @@
+Mixed Media is a news search engine that returns recent and relevant articles from politically right leaning and left leaning media simultaneously. It is intended to educate students and newcomers to the United States about the right and left political bias in US media, so that they can learn about the different political viewpoints. It is most powerful in viewing different attitudes towards breaking news.
+
+Mixed Media uses Flask to output a website created with a python script and html. All required files for execution exist in the mixedmedia folder. The folder contains a main python script application.py and the template folder within contains html files including layout.html, search.html and results.html.
+
+To activate the website, simply open the mixedmedia folder in the terminal, and do Flask run. Click the URL given in the terminal. Write a search keyword or keywords in the search box and hit enter. The site will return two  lists of articles from  left leaning and right leaning news media. Click on the title to view the article. Simply enter a new keyword on the search bar above the results to do a new search. Happy searching!
