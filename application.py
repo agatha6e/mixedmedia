@@ -8,13 +8,31 @@ import json
 # Configure application
 app = Flask(__name__)
 
+@app.after_request
+def after_request(response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Expires"] = 0
+    response.headers["Pragma"] = "no-cache"
+    return response
+
+
+
+# Custom filter
+app.jinja_env.filters["usd"] = usd
+
+# Configure session to use filesystem (instead of signed cookies)
+app.config["SESSION_FILE_DIR"] = mkdtemp()
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
+
 
 @app.route("/articles_left")
 def articlesl(keyword):
     """Returns articles from left leaning media"""
 
     # list of left leaning media
-    medialist_left = "abcnews.go.com,bbc.com,bloomberg.com,nytimes.com,cbsnews.com,politico.com,cnbc.com,time.com"
+    medialist_left = "abcnews.go.com,bloomberg.com,nytimes.com,cbsnews.com,politico.com,huffingtonpost.com,msnbc.com"
 
     # url for API search
     left_url = ('https://newsapi.org/v2/everything?q='+keyword+'&domains='+medialist_left+'&sortBy='+'publishedAt'+'&language=en'+'&apiKey=666aaf2f4b3246958aee5eed64c1033e')
