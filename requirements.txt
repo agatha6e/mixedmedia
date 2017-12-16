@@ -1,4 +1,0 @@
-cs50
-gunicorn
-Flask
-Flask-Session
