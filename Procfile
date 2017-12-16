@@ -1,1 +1,1 @@
-web: gunicorn mixedmedia.wsgi -b 0.0.0.0:$PORT
+web gunicorn application:app
