@@ -1,8 +1,6 @@
-from cs50 import SQL
 from flask import Flask, redirect, render_template, request, session, jsonify
 from flask_session import Session
-from tempfile import mkdtemp
-from werkzeug.exceptions import default_exceptions
+
 
 import requests
 import json
@@ -10,26 +8,6 @@ import json
 
 # Configure application
 app = Flask(__name__)
-
-@app.after_request
-def after_request(response):
-    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-    response.headers["Expires"] = 0
-    response.headers["Pragma"] = "no-cache"
-    return response
-
-
-
-
-# Configure session to use filesystem (instead of signed cookies)
-app.config["SESSION_FILE_DIR"] = mkdtemp()
-app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_TYPE"] = "filesystem"
-Session(app)
-
-
-# Configure CS50 Library to use SQLite database
-db = SQL("postgres://vhmxrwdoiwpruj:8646b264d47a2da9ea214eecceec5aa04de3ab0c275e712831593abbb9bf907a@ec2-54-163-233-103.compute-1.amazonaws.com:5432/dat8n1gkq4evsg")
 
 
 @app.route("/articles_left")
