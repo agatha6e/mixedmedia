@@ -1,5 +1,5 @@
-cs50
 gunicorn
+cs50
 Flask
 Flask-Session
 Jinja2
