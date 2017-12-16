@@ -29,7 +29,7 @@ Session(app)
 
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///mixedmedia.db")
+db = SQL("postgres://vhmxrwdoiwpruj:8646b264d47a2da9ea214eecceec5aa04de3ab0c275e712831593abbb9bf907a@ec2-54-163-233-103.compute-1.amazonaws.com:5432/dat8n1gkq4evsg")
 
 
 @app.route("/articles_left")
