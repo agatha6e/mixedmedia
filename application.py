@@ -3,7 +3,6 @@ from flask_session import Session
 from tempfile import mkdtemp
 
 
-import requests
 import json
 
 
